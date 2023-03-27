@@ -6,10 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PublishEventController {
+	
+	 @RequestMapping("/")
+	    String app() {
+	        return "This is an event.";
+	    }
+	
 
     @GetMapping("/publish-event")
     String publishEvent() {
         return "This is an event.";
     }
-
+    
 }
