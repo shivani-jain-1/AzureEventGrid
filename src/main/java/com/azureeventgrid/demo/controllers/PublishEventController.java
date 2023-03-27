@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PublishEventController {
 	
-	 @RequestMapping("/")
-	    String app() {
-	        return "This is an event.";
-	    }
+	@RequestMapping
+	public String home(){
+		return "index";
+	}
 	
 
     @GetMapping("/publish-event")
