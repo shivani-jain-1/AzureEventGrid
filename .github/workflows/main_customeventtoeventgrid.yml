@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'CustomEventToEventGrid'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E938D117B894FC5A5AAD22F8746167A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3712D1548C61429BA30707448B8BBD0D }}
           package: '*.jar'
