@@ -27,7 +27,7 @@ public class PublishEventController {
 		return "index";
 	}
 	
-	@PostMapping("/consumed-event")
+	@PostMapping("/consume-event")
 	public String consumedEvent(){
 		 boolean useSsl = true;
 	        String cacheHostname = "eg-redis-cache-demo.redis.cache.windows.net";
