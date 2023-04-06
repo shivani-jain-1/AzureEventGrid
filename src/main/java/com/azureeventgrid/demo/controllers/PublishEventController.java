@@ -6,8 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,9 +17,6 @@ import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.BinaryData;
 import com.azure.messaging.eventgrid.EventGridPublisherClient;
 import com.azure.messaging.eventgrid.EventGridPublisherClientBuilder;
-
-import redis.clients.jedis.DefaultJedisClientConfig;
-import redis.clients.jedis.Jedis;
 
 @RestController
 public class PublishEventController {
@@ -27,9 +26,12 @@ public class PublishEventController {
 		return "index";
 	}
 	
-	@GetMapping("/consume-event")
-	public String consumedEvent(){
-		 boolean useSsl = true;
+	@PostMapping(path = "consume", 
+	        consumes = MediaType.APPLICATION_JSON_VALUE, 
+	        produces = MediaType.APPLICATION_JSON_VALUE)
+	public String writetocache( @RequestBody String message){
+		 
+		/*boolean useSsl = true;
 	        String cacheHostname = "eg-redis-cache-demo.redis.cache.windows.net";
 	        System.out.println(cacheHostname);
 	        String cachekey = "RpPMgUOpByHZi3QEb0bEhTUXH1KNKYWEfAzCaBSKGTs=";
@@ -44,7 +46,7 @@ public class PublishEventController {
 	    jedis.set("Message", "Hello! I am coming from azure webapp");
 	    jedis.get("Message");
 	    jedis.clientList();
-	    
+	    */
 	        // Perform cache operations using the cache connection object...
 
 			/*
@@ -68,9 +70,10 @@ public class PublishEventController {
 			 * "Cache Response : " + jedis.clientList());
 			 */
 
-	        jedis.close();
+	        //jedis.close();
 		
-		return "This event has been consumed successfully by Azure cache as redis service";
+		//return "This event has been consumed successfully by Azure cache as redis service";
+		return message;
 	}
 
     @GetMapping("/publish-event")
