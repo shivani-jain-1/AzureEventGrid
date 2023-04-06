@@ -17,6 +17,7 @@ import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.BinaryData;
 import com.azure.messaging.eventgrid.EventGridPublisherClient;
 import com.azure.messaging.eventgrid.EventGridPublisherClientBuilder;
+import com.azureeventgrid.demo.schemamodel.CustomSchema;
 
 @RestController
 public class PublishEventController {
@@ -27,52 +28,11 @@ public class PublishEventController {
 	}
 	
 	@PostMapping(path = "/consume", 
-	        consumes = MediaType.APPLICATION_JSON_VALUE, 
-	        produces = MediaType.APPLICATION_JSON_VALUE)
-	public String writetocache( @RequestBody String message){
+	        consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String writetocache( @RequestBody CustomSchema schema){
 		 
-		/*boolean useSsl = true;
-	        String cacheHostname = "eg-redis-cache-demo.redis.cache.windows.net";
-	        System.out.println(cacheHostname);
-	        String cachekey = "RpPMgUOpByHZi3QEb0bEhTUXH1KNKYWEfAzCaBSKGTs=";
-
-	        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-	    Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
-	            .password(cachekey)
-	            .ssl(useSsl)
-	            .build());
-	    jedis.ping();
-	   
-	    jedis.set("Message", "Hello! I am coming from azure webapp");
-	    jedis.get("Message");
-	    jedis.clientList();
-	    */
-	        // Perform cache operations using the cache connection object...
-
-			/*
-			 * // Simple PING command System.out.println( "\nCache Command  : Ping" );
-			 * System.out.println( "Cache Response : " + jedis.ping());
-			 * 
-			 * // Simple get and put of integral data types into the cache
-			 * System.out.println( "\nCache Command  : GET Message" ); System.out.println(
-			 * "Cache Response : " + jedis.get("Message"));
-			 * 
-			 * System.out.println( "\nCache Command  : SET Message" ); System.out.println(
-			 * "Cache Response : " + jedis.set("Message",
-			 * "Hello! I am coming from azure webapp"));
-			 * 
-			 * // Demonstrate "SET Message" executed as expected... System.out.println(
-			 * "\nCache Command  : GET Message" ); System.out.println( "Cache Response : " +
-			 * jedis.get("Message"));
-			 * 
-			 * // Get the client list, useful to see if connection list is growing...
-			 * System.out.println( "\nCache Command  : CLIENT LIST" ); System.out.println(
-			 * "Cache Response : " + jedis.clientList());
-			 */
-
-	        //jedis.close();
+		String message = schema.getSubject();
 		
-		//return "This event has been consumed successfully by Azure cache as redis service";
 		return message;
 	}
 
