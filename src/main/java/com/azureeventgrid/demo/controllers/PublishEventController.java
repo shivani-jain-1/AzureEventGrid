@@ -26,7 +26,7 @@ public class PublishEventController {
 		return "index";
 	}
 	
-	@PostMapping(path = "consume", 
+	@PostMapping(path = "/consume", 
 	        consumes = MediaType.APPLICATION_JSON_VALUE, 
 	        produces = MediaType.APPLICATION_JSON_VALUE)
 	public String writetocache( @RequestBody String message){
