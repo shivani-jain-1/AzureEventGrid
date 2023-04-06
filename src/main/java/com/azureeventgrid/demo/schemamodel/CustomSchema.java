@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomSchema {
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getEventTime() {
@@ -41,7 +41,7 @@ public class CustomSchema {
 	public void setDataVersion(String dataVersion) {
 		this.dataVersion = dataVersion;
 	}
-	public CustomSchema(int id, String eventTime, String subject, String eventType, String data, String dataVersion) {
+	public CustomSchema(String id, String eventTime, String subject, String eventType, String data, String dataVersion) {
 		super();
 		this.id = id;
 		this.eventTime = eventTime;
@@ -50,7 +50,7 @@ public class CustomSchema {
 		this.data = data;
 		this.dataVersion = dataVersion;
 	}
-	private int id; 
+	private String id; 
 	private String eventTime;
 	private String subject;
 	private String eventType;
