@@ -56,9 +56,9 @@ public class PublishEventController {
 			{
     	        put("id", UUID.randomUUID().toString());
     	        put("eventTime", OffsetDateTime.now().toString());
-    	        put("subject", "Pricing");
+    	        put("subject", "Pricing-publishapi-data");
     	        put("eventType", "pricingManagement.Data");
-    	        put("data", "[{'itemName':'<item-price>'}]");
+    	        put("data", "some data");
     	        put("dataVersion", "0.1");
     	    }
     	}));
