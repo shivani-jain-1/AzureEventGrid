@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,7 @@ public class PublishEventController {
 	}
 
     @GetMapping("/publish-event")
+    
     String publishEvent() {
     	
     	// For custom event
@@ -56,7 +58,7 @@ public class PublishEventController {
 			{
     	        put("id", UUID.randomUUID().toString());
     	        put("eventTime", OffsetDateTime.now().toString());
-    	        put("subject", "Pricing-publishapi-data");
+    	        put("subject", "Pricing_PublishAPI_Data");
     	        put("eventType", "pricingManagement.Data");
     	        put("data", "some data");
     	        put("dataVersion", "0.1");
