@@ -29,9 +29,9 @@ public class PublishEventController {
 	
 	@PostMapping(path = "/consume", 
 	        consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String writetocache( @RequestBody CustomSchema schema){
+	public String writetocache( @RequestBody CustomSchema[] schema){
 		 
-		String message = schema.getSubject();
+		String message = schema[0].getSubject();
 		
 		return message;
 	}
